@@ -19,5 +19,13 @@
     }
 </script>
 
-<style lang="scss">
+<style scoped>
+  div {
+    background-color: gray;
+    height: 200px;
+    width: 300px;
+    position: fixed;
+    left: 100px;
+    top: 100px;
+  }
 </style>

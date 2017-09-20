@@ -1,8 +1,11 @@
 <template>
   <div>
-    <app-user-detail :name = "name" :age="age"></app-user-detail>
+    <app-user-detail
+             :name = "name" 
+             :age="age" @nameWasReset="name = $event"
+             :resetFn="resetName"></app-user-detail>
     <hr>
-    <app-user-edit :age="age" @ageWasEdited="age = $event"></app-user-edit>
+    <app-user-edit :age="age" @ageWasEdited="age = $event" ></app-user-edit>
   </div>
 </template>
 
@@ -17,6 +20,11 @@
         age: 27
       }
     },
+    methods:{
+      resetName(){
+        this.name = 'Santos'
+      }
+    },
     components:{
       'app-user-detail': UserDetail,
       'app-user-edit': UserEdit
@@ -24,5 +32,11 @@
   }
 </script>
 
-<style lang="scss">
+<style scoped>
+  div {
+    background-color: lightgreen;
+    position: fixed;
+    height: 500px;
+    width: 1500px
+  }
 </style>
