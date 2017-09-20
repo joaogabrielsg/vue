@@ -2,6 +2,7 @@
   <div>
     <h3>You may view the User Details here</h3>
     <p>User Name: {{ name }}</p>
+    <p>User Age: {{ age }}</p>
     <p>{{ switchName() }}</p>
   </div>
 </template>
@@ -12,7 +13,8 @@ export default {
     name: {
       type: String,
       default: 'João'
-    }
+    },
+    age:Number
   },
   methods:{
     switchName(){
