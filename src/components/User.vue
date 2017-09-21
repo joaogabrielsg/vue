@@ -2,10 +2,13 @@
   <div>
     <app-user-detail
              :name = "name" 
-             :age="age" @nameWasReset="name = $event"
+             :age="age"
+             @nameWasReset="name = $event"
              :resetFn="resetName"></app-user-detail>
     <hr>
-    <app-user-edit :age="age" @ageWasEdited="age = $event" ></app-user-edit>
+    <app-user-edit 
+              :age="age" 
+              @ageWasEdited="age = $event"></app-user-edit>
   </div>
 </template>
 
