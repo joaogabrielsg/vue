@@ -14,11 +14,10 @@
         props: ['age'],
         methods:{
             editAge(){
-                this.age = 30;
+              this.age = 30;
 //                this.$emit('ageWasEdited', this.age)
-                eventBus.$emit('ageWasEdited', (age) => {
-                  this.age = age
-                });
+//                eventBus.$emit('ageWasEdited', this.age);
+              eventBus.changeAge(this.age);
             }
         }
     }
