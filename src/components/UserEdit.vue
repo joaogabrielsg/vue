@@ -3,6 +3,8 @@
     <h3>You may edit the user here</h3>
     <p>Edit Me!</p>
     <p>User Age: {{ age }}</p>
+    <slot></slot>
+    <hr>
     <button @click="editAge()">Edit Age</button>
   </div>
 </template>

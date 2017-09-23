@@ -9,8 +9,7 @@ import User from './components/User.vue'
 
 export default {
   name: 'app',
-  data () {
-  },
+
   components:{
     'app-user': User
   }

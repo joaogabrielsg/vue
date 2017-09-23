@@ -1,14 +1,19 @@
 <template>
   <div>
-    <app-user-detail
-             :name = "name" 
-             :age="age"
-             @nameWasReset="name = $event"
-             :resetFn="resetName"></app-user-detail>
+    <button @click="selectedComponent = 'appUserEdit'">appUserEdit</button>
+    <button @click="selectedComponent = 'appUserDetail'">appUserDetail</button>
+    <hr>
+    <p>{{ selectedComponent }}</p>
+    <component :is="selectedComponent" :age="age">Passando pelo slot</component>
+    <!-- <app-user-detail
+              :name = "name" 
+              :age="age"
+              @nameWasReset="name = $event"
+              :resetFn="resetName"></app-user-detail>
     <hr>
     <app-user-edit 
-              :age="age" 
-              @ageWasEdited="age = $event"></app-user-edit>
+               :age="age" 
+               @ageWasEdited="age = $event"></app-user-edit> -->
   </div>
 </template>
 
@@ -20,7 +25,9 @@
     data () {
       return {
         name: 'Gabriel',
-        age: 27
+        age: 27,
+
+        selectedComponent: 'appUserEdit'
       }
     },
     methods:{
@@ -29,17 +36,20 @@
       }
     },
     components:{
-      'app-user-detail': UserDetail,
-      'app-user-edit': UserEdit
+      'appUserDetail': UserDetail,
+      'appUserEdit': UserEdit
     }
   }
 </script>
 
 <style scoped>
-  div {
+  /* div {
     background-color: lightgreen;
     position: fixed;
     height: 500px;
     width: 1500px
-  }
+  } */
+    p{
+      height: 30px;
+    }
 </style>
