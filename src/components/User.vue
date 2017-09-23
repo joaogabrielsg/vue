@@ -4,7 +4,10 @@
     <button @click="selectedComponent = 'appUserDetail'">appUserDetail</button>
     <hr>
     <p>{{ selectedComponent }}</p>
-    <component :is="selectedComponent" :age="age">Passando pelo slot</component>
+
+    <keep-alive>
+      <component :is="selectedComponent" :age="age">Passando pelo slot</component>
+    </keep-alive>
     <!-- <app-user-detail
               :name = "name" 
               :age="age"
