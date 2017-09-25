@@ -34,6 +34,15 @@ export default {
     eventBus.$on('ageWasEdited', (age) => {
         this.age = age
     });
+  },
+  destroyed(){
+    console.log('destroyed');
+  },
+  deactivated(){
+    console.log('deactivated');
+  },
+  activated(){
+    console.log('activated');
   }
 }
 </script>
