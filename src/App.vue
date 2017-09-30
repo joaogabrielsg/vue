@@ -28,7 +28,7 @@
       <option v-for="city in cities" :selected="city == 'Rio de Janeiro'">{{ city }}</option>
     </select> -->
 
-    <app-mydirectives v-highlight></app-mydirectives>
+    <app-mydirectives v-highlight:background="'blue'"></app-mydirectives>
 
   </div>
 </template>
