@@ -30,10 +30,18 @@
       <option v-for="city in cities" :selected="city == 'Rio de Janeiro'">{{ city }}</option>
     </select> -->
 
-    <app-mydirectives v-highlight:background="'blue'"></app-mydirectives>
+    <!--<app-mydirectives v-highlight:background="'blue'"></app-mydirectives>
 
     <p v-local-highlight:background.delayed.blink="{mainColor: 'red', secondColor: 'green', delay: 500}">Teste do highlight</p>
 
+    <p>{{ gener | toUppercase | to-lowercase }}</p>
+
+    <input v-model="filterText">
+    <ul>
+      <li v-for="item in filteredCities">{{ item }}</li>
+    </ul>-->
+
+    <app-animation></app-animation>
 
   </div>
 </template>
@@ -43,6 +51,7 @@
 import User from './components/User.vue'
 import Form from './components/Form.vue'
 import MyDirectives from './components/MyDirectives.vue'
+import Animation from './components/Animation.vue'
 
 export default {
   name: 'app',
@@ -50,14 +59,24 @@ export default {
     return{
       sendMail: [],
       gener: 'male',
-      cities: ['Fortaleza', 'Rio de Janeiro', 'São Paulo']
+      cities: ['Fortaleza', 'Rio de Janeiro', 'São Paulo'],
+      filterText:''
+    }
+  },
+
+  computed:{
+    filteredCities(){
+      return this.cities.filter((element) => {
+        return element.match(this.x);
+      })
     }
   },
 
   components:{
     'app-user': User,
     'app-form': Form,
-    'app-mydirectives': MyDirectives
+    'app-mydirectives': MyDirectives,
+    'app-animation': Animation
   },
   directives:{
     'local-highlight':{
@@ -91,6 +110,12 @@ export default {
           }, delay);
         }
       }
+    }
+  },
+
+  filters:{
+    toUppercase(value){
+      return value.toUpperCase();
     }
   }
 }
